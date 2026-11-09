@@ -1,0 +1,5 @@
+.venv_airflow
+.vscode
+01_notebooks
+logs
+00_notebooks

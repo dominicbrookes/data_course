@@ -1,0 +1,18 @@
+order_id,customer_id,order_date,product_name,quantity,unit_price_gbp,status,rejection_reason
+10042,19,2026-11-03,Mechanical Keyboard,,89.0,COMPLETED,missing_value
+10043,,2026-11-03,Portable SSD 1TB,1.0,99.0,REFUNDED,missing_value
+10029,1,2026-11-03,Noise Cancelling Headphones,1.0,,COMPLETED,missing_value
+10011,33,2026-11-03,Mechanical Keyboard,2.0,,COMPLETED,missing_value
+10026,26,2026-11-03,Portable SSD 1TB,5.0,99.0,COMPLETED,duplicate_order_id
+10017,17,2026-11-03,Mechanical Keyboard,2.0,89.0,COMPLETED,duplicate_order_id
+10009,16,2026-11-03,Monitor Arm,3.0,64.0,COMPLETED,duplicate_order_id
+10020,39,2026-11-03,Noise Cancelling Headphones,0.0,149.0,REFUNDED,zero_or_negative_price_or_quantity
+10040,31,2026-11-03,Desk Lamp,-2.0,29.0,COMPLETED,zero_or_negative_price_or_quantity
+10046,11,2026-11-03,Phone Charger,1.0,-19.99,COMPLETED,zero_or_negative_price_or_quantity
+10036,16,2026-11-03,Mechanical Keyboard,1.0,89.0,SHIPPD,invalid_status
+10053,37,2026-11-03,USB C Cable,1.0,9.99,COMPLETED,unknown_customer
+10034,998,2026-11-03,USB C Cable,2.0,9.99,COMPLETED,unknown_customer
+10001,999,2026-11-03,Desk Lamp,2.0,29.0,PENDING,unknown_customer
+10006,37,2026-11-03,Webcam HD,1.0,54.99,CANCELLED,unknown_customer
+10050,37,2026-11-03,USB C Cable,2.0,9.99,COMPLETED,unknown_customer
+10032,37,2026-11-03,Monitor Arm,2.0,64.0,COMPLETED,unknown_customer

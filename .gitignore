@@ -4,3 +4,5 @@ airflow/logs/
 airflow/airflow.db*
 airflow/airflow.cfg
 airflow/simple_auth_manager_passwords.json.generated
+*.db
+.vscode/settings.json

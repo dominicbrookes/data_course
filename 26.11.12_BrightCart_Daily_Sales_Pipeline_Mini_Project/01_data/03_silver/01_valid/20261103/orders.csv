@@ -1,0 +1,42 @@
+order_id,customer_id,order_date,product_name,quantity,unit_price_gbp,status,customer_name,city
+10037,28,2026-11-03,Desk Lamp,1.0,29.0,COMPLETED,Leo Owen,London
+10031,18,2026-11-03,Webcam HD,3.0,54.99,COMPLETED,Arthur Price,Leeds
+10049,3,2026-11-03,Phone Charger,2.0,19.99,COMPLETED,Aisha Khan,Manchester
+10048,26,2026-11-03,USB C Cable,1.0,9.99,COMPLETED,Daniel Grant,Manchester
+10030,5,2026-11-03,Portable SSD 1TB,1.0,99.0,COMPLETED,Isla Patel,Glasgow
+10038,29,2026-11-03,Notebook Pack,2.0,7.5,COMPLETED,Ella Shaw,Edinburgh
+10007,14,2026-11-03,Webcam HD,2.0,54.99,COMPLETED,Ethan Ward,London
+10021,20,2026-11-03,Monitor Arm,1.0,64.0,COMPLETED,Thomas Bailey,London
+10016,8,2026-11-03,Noise Cancelling Headphones,1.0,149.0,CANCELLED,Noah Hughes,London
+10013,39,2026-11-03,Laptop Stand,1.0,39.5,CANCELLED,Mia Stone,Edinburgh
+10055,24,2026-11-03,Webcam HD,1.0,54.99,PENDING,Samuel Collins,London
+10045,4,2026-11-03,Noise Cancelling Headphones,1.0,149.0,COMPLETED,Harry Thompson,London
+10015,8,2026-11-03,Noise Cancelling Headphones,3.0,149.0,PENDING,Noah Hughes,London
+10024,11,2026-11-03,Laptop Stand,1.0,39.5,COMPLETED,Priya Shah,London
+10025,14,2026-11-03,Noise Cancelling Headphones,2.0,149.0,PENDING,Ethan Ward,London
+10010,28,2026-11-03,Noise Cancelling Headphones,2.0,149.0,COMPLETED,Leo Owen,London
+10026,26,2026-11-03,Portable SSD 1TB,3.0,99.0,COMPLETED,Daniel Grant,Manchester
+10017,17,2026-11-03,Mechanical Keyboard,2.0,89.0,COMPLETED,Emily Brooks,London
+10027,29,2026-11-03,Ergonomic Chair Cushion,1.0,34.5,COMPLETED,Ella Shaw,Edinburgh
+10012,10,2026-11-03,USB C Cable,3.0,9.99,CANCELLED,Jack Robinson,London
+10002,24,2026-11-03,Ergonomic Chair Cushion,1.0,34.5,CANCELLED,Samuel Collins,London
+10005,15,2026-11-03,Mechanical Keyboard,3.0,89.0,COMPLETED,Chloe Cooper,Bristol
+10023,35,2026-11-03,Portable SSD 1TB,1.0,99.0,COMPLETED,Poppy Mason,Manchester
+10035,7,2026-11-03,Mechanical Keyboard,1.0,89.0,COMPLETED,Freya Evans,Leeds
+10052,30,2026-11-03,Notebook Pack,1.0,7.5,COMPLETED,Oscar Webb,Glasgow
+10008,26,2026-11-03,Portable SSD 1TB,3.0,99.0,COMPLETED,Daniel Grant,Manchester
+10047,5,2026-11-03,Noise Cancelling Headphones,2.0,149.0,COMPLETED,Isla Patel,Glasgow
+10009,16,2026-11-03,Monitor Arm,3.0,64.0,COMPLETED,Mohammed Ali,Leeds
+10054,17,2026-11-03,USB C Cable,1.0,9.99,COMPLETED,Emily Brooks,London
+10003,39,2026-11-03,Desk Lamp,3.0,29.0,COMPLETED,Mia Stone,Edinburgh
+10018,20,2026-11-03,Laptop Stand,3.0,39.5,COMPLETED,Thomas Bailey,London
+10028,2,2026-11-03,Desk Lamp,2.0,29.0,COMPLETED,Oliver Bennett,Manchester
+10051,21,2026-11-03,Webcam HD,1.0,54.99,REFUNDED,Lily Fisher,Liverpool
+10004,11,2026-11-03,Laptop Stand,2.0,39.5,COMPLETED,Priya Shah,London
+10033,27,2026-11-03,Monitor Arm,1.0,64.0,COMPLETED,Ruby Lloyd,London
+10041,25,2026-11-03,Mechanical Keyboard,1.0,89.0,PENDING,Ava Ellis,Newcastle
+10044,38,2026-11-03,Notebook Pack,3.0,7.5,COMPLETED,Alfie Rowe,Bristol
+10022,6,2026-11-03,Wireless Mouse,1.0,24.99,COMPLETED,George Wright,Bristol
+10014,34,2026-11-03,Mechanical Keyboard,1.0,89.0,COMPLETED,Charlie Lowe,Newcastle
+10039,1,2026-11-03,USB C Cable,1.0,9.99,COMPLETED,Amelia Clarke,London
+10019,24,2026-11-03,Noise Cancelling Headphones,1.0,149.0,COMPLETED,Samuel Collins,London
