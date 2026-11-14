@@ -5,4 +5,13 @@ airflow/airflow.db*
 airflow/airflow.cfg
 airflow/simple_auth_manager_passwords.json.generated
 *.db
+!brightcart.db
 .vscode/settings.json
+
+# dbt
+*.duckdb*
+profiles.yml
+.user.yml
+target/
+logs/
+dbt_packages/

@@ -1,6 +1,6 @@
 {
   "run_date": "20261105",
-  "run_at_utc": "2026-11-09T13:04:52+00:00",
+  "run_at_utc": "2026-11-12T17:51:52+00:00",
   "customers": {
     "source": 46,
     "valid": 44,
@@ -32,8 +32,8 @@
   },
   "status": "success",
   "output_age_minutes": {
-    "city_report.csv": 0.0,
-    "daily_summary_report.csv": 0.0
+    "city_report.csv": 0.1,
+    "daily_summary_report.csv": 0.1
   },
   "quality_checks": {
     "customer counts reconcile": true,

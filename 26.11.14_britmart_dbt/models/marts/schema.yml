@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: fct_daily_sales
+    description: Daily sales by city, completed orders only.
+    columns:
+      - name: order_date
+        description: The day the orders were placed.
+        data_tests:
+          - not_null
+      - name: city
+        description: Customer city in upper case.
+      - name: order_count
+        description: Number of completed orders for that day and city.
+        data_tests:
+          - not_null
+      - name: revenue_gbp
+        description: Total value of completed orders for that day and city, in pounds.
+
+  - name: dim_customer
+    description: One row per customer, built straight from stg_customers.
+    columns:
+      - name: customer_id
+        description: Unique ID for each customer.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer name with extra spaces removed.
+        data_tests:
+          - not_null
+      - name: city
+        description: Customer city in upper case.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['LONDON', 'MANCHESTER', 'BRISTOL', 'LEEDS']
+
+  - name: fct_orders_incremental
+    description: Incremental orders table. After the first run, only rows with a newer updated_at are processed.
+    columns:
+      - name: order_id
+        description: Unique ID for each order (the unique_key).
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: ID of the customer who placed the order.
+      - name: order_date
+        description: Date the order was placed.
+      - name: amount_gbp
+        description: Order value in pounds.
+      - name: status
+        description: Order status, e.g. complete.
+      - name: updated_at
+        description: When the order was last changed. Used to pick up new rows on incremental runs.
+
+  - name: fct_city_sales
+    description: Sales by city, completed orders only. Built from int_completed_orders.
+    columns:
+      - name: city
+        description: Customer city. One row per city.
+        data_tests:
+          - unique
+      - name: order_count
+        description: Number of completed orders for that city.
+        data_tests:
+          - not_null
+      - name: revenue_gbp
+        description: Total value of completed orders for that city, in pounds.
