@@ -1,0 +1,83 @@
+version: 2
+# Since dbt version 1.5, version: 2 at the top of YAML files like sources.yml and schema.yml is optional, so dbt will read the file fine without it. 
+# Older versions of dbt required it. 
+
+sources:
+  - name: britmart_raw
+    description: Raw britmart orders and customers, exactly as they arrived.
+    schema: raw
+    tables:
+      - name: orders
+      - name: customers
+
+# The above works under the assumption that dbt is reading from a database. dbt is always connected to a database through `profiles.yml` 
+# (mine is `dev.duckdb`), but Ironhack's answer only works if the raw data is already a table in that database, in a schema called `raw`. 
+# That's the normal real-world setup: a loading tool like Airflow, Fivetran or a Python script copies the data into the warehouse (e.g. `raw.orders`), 
+# and dbt doesn't load anything itself. It just reads that table with `source()` and transforms it.
+# In the example below I'm connecting to something 'external' to the database, for example purposes. 
+
+# sources:
+#   - name: britmart_raw
+#     description: Raw britmart orders, exactly as they arrived.
+#     meta:
+#       external_location: "real_file_path"
+#     tables:
+#       - name: orders
+
+# ======================================================================
+# dbt notes: missing raw schema
+# ======================================================================
+#
+# 1. For Q2, do I need to build source data like Anyelle did?
+#    No. Q2 only asks for the YAML (sources.yml with schema: raw and
+#    table orders), which dbt can read without any data.
+#    But Ironhack's answer assumes the raw schema and orders table
+#    ALREADY EXIST in the database, loaded there by a tool like Airflow
+#    or Fivetran, because dbt doesn't load data itself.
+#    In my project there is NO raw schema in dev.duckdb. It only has
+#    main, with dbt's two example models. So any model that reads the
+#    source (from Q3) will fail with "table not found" until the data
+#    is there.
+#
+# 2. How do I open dev.duckdb in the DuckDB UI?
+#    1) Install once:
+#         curl https://install.duckdb.org | sh
+#    2) Add it to PATH:
+#         echo 'export PATH="/home/dominicbrookes/.duckdb/cli/latest:$PATH"' >> ~/.bashrc
+#    3) Open a NEW terminal, activate the venv, then check:
+#         source ~/data_course/.venv_airflow/bin/activate
+#         duckdb --version
+#    4) Go to the project folder and start the UI:
+#         cd ~/data_course/26.11.14_britmart_dbt
+#         duckdb -ui dev.duckdb
+#       It opens at localhost:4213.
+#    5) Press Ctrl+C to close it before running dbt, or you'll get a
+#       lock error.
+#
+# 3. Is it separate for every new project folder?
+#    Yes. Each dbt project has its own dev.duckdb, and the UI opens
+#    whichever one you give it. For a new project, cd into its folder
+#    and run: duckdb -ui dev.duckdb
+#    The UI's notebooks are shared across all projects, and only one UI
+#    can run at a time.
+#
+# 4. What are my options for Q3?
+#    1) Write it, don't run it.
+#       Create stg_orders.sql and copy it into the notebook.
+#       Nothing to set up, but you can't test it.
+#    2) Load the data into dev.duckdb (recommended).
+#       Copy the CSVs into raw_data, then run this in the UI:
+#         CREATE SCHEMA IF NOT EXISTS raw;
+#         CREATE OR REPLACE TABLE raw.orders AS
+#         SELECT * FROM read_csv_auto('raw_data/orders.csv');
+#       sources.yml stays as it is (schema: raw) and dbt run works.
+#       This matches Ironhack's setup.
+#    3) Point the source at the CSV.
+#       Use meta: external_location: "raw_data/{name}.csv" in
+#       sources.yml. DuckDB reads the file directly, so there's nothing
+#       to load (Anyelle's approach).
+#    Whichever you pick, check the data has the columns Q3 needs
+#    (order_id, customer_id, amount_gbp, status) with:
+#         DESCRIBE raw.orders;
+# ======================================================================
+

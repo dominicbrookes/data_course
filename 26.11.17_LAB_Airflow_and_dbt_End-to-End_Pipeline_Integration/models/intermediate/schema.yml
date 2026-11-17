@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: q9
+    description: Orders joined to customers, so each order has the customer's name and city.
+    columns:
+      - name: order_id
+        description: Unique ID for each order.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: ID of the customer who placed the order.
+      - name: order_date
+        description: Date the order was placed.
+      - name: customer_name
+        description: Customer name, from stg_customers.
+      - name: city
+        description: Customer city, from stg_customers.
+      - name: amount_gbp
+        description: Order value in pounds.
+      - name: status
+        description: Order status, e.g. complete.
+
+  - name: int_completed_orders
+    description: Completed orders only, joined to customers so each order has a city.
+    columns:
+      - name: order_id
+        description: Unique ID for each order.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: ID of the customer who placed the order.
+      - name: amount_gbp
+        description: Order value in pounds, as decimal(10,2).
+      - name: order_date
+        description: Date the order was placed.
+      - name: status
+        description: Order status in lower case. Always complete in this model.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['complete']
+      - name: city
+        description: Customer city, from stg_customers.

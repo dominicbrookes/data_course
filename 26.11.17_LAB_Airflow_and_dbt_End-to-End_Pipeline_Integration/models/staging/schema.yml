@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Cleaned orders from the raw source. Rows with no order_id are removed.
+    columns:
+      - name: order_id
+        description: Unique ID for each order.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: ID of the customer who placed the order.
+      - name: amount_gbp
+        description: Order value in pounds.
+      - name: order_date
+        description: Date the order was placed.
+      - name: status
+        description: Order status, e.g. complete.
+
+  - name: stg_customers
+    description: Cleaned customers from the raw source. Names trimmed, city in upper case.
+    columns:
+      - name: customer_id
+        description: Unique ID for each customer.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer name with extra spaces removed.
+      - name: city
+        description: Customer city in upper case.
+
+  - name: stg_type_conversion
+    description: Q7 practice model. Converts the order amount to a decimal(10,2).
+    columns:
+      - name: order_id
+        description: Order ID. Not filtered, so the raw row with no order_id is still here.
+      - name: order_date
+        description: Date the order was placed.
+      - name: amount_gbp
+        description: Order value converted to decimal(10,2) with try_cast.
